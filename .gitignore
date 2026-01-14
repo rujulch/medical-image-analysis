@@ -1,0 +1,91 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.cursor/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data files - DO NOT COMMIT LARGE DATASETS
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.csv
+*.parquet
+
+# Model weights - DO NOT COMMIT LARGE MODELS
+models/weights/*
+!models/weights/.gitkeep
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+
+# Logs and outputs
+logs/*
+!logs/.gitkeep
+outputs/*
+!outputs/.gitkeep
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Gradio cache
+flagged/
+gradio_cached_examples/
+
+# HuggingFace cache
+.cache/
+
+# Nested/duplicate venv
+src/venv/
+
+# Lock file is optional (keep requirements.lock but ignore if regenerated)
+# requirements.lock

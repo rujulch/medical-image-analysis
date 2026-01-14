@@ -1,0 +1,52 @@
+# Docker Compose configuration for Medical Image Analysis Platform
+
+version: '3.8'
+
+services:
+  medical-ai:
+    build: .
+    container_name: medical-image-analysis
+    ports:
+      - "7860:7860"
+    volumes:
+      # Mount data directories for persistence
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./models/weights:/app/models/weights
+    environment:
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7860
+    # For GPU support, uncomment below:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    restart: unless-stopped
+
+  # Optional: Add GPU-enabled version
+  medical-ai-gpu:
+    build: .
+    container_name: medical-image-analysis-gpu
+    ports:
+      - "7861:7860"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./models/weights:/app/models/weights
+    environment:
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7860
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    profiles:
+      - gpu
+    restart: unless-stopped
+
